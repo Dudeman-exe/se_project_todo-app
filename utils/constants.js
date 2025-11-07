@@ -28,4 +28,6 @@ const validationConfig = {
   inactiveButtonClass: "button_disabled",
 };
 
-export { initialTodos, validationConfig };
+const todoTemplate = document.querySelector("#todo-template");
+
+export { initialTodos, validationConfig, todoTemplate };
