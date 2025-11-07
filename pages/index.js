@@ -1,14 +1,11 @@
-import {
-  initialTodos,
-  validationConfig,
-  todoTemplate,
-} from "../utils/constants.js";
+import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
+//const todoTemplate = document.querySelector("#todo-template");
 const todosList = document.querySelector(".todos__list");
 
 const openModal = (modal) => {
@@ -21,19 +18,11 @@ const closeModal = (modal) => {
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
-  const todo = new Todo(data, todoTemplate);
+  const todo = new Todo(data, "#todo-template");
   const todoEl = todo.getView();
   return todoEl;
 
   /* To be removed
-  const todoElement = todoTemplate.content
-    .querySelector(".todo")
-    .cloneNode(true);
-  const todoNameEl = todoElement.querySelector(".todo__name");
-  const todoCheckboxEl = todoElement.querySelector(".todo__completed");
-  const todoLabel = todoElement.querySelector(".todo__label");
-  const todoDate = todoElement.querySelector(".todo__date");
-  const todoDeleteBtn = todoElement.querySelector(".todo__delete-btn");
 
   todoNameEl.textContent = data.name;
   todoCheckboxEl.checked = data.completed;
