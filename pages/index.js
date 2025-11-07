@@ -22,7 +22,11 @@ const closeModal = (modal) => {
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplate);
-  /*const todoElement = todoTemplate.content
+  const todoEl = todo.getView();
+  return todoEl;
+
+  /* To be removed
+  const todoElement = todoTemplate.content
     .querySelector(".todo")
     .cloneNode(true);
   const todoNameEl = todoElement.querySelector(".todo__name");
@@ -53,8 +57,6 @@ const generateTodo = (data) => {
   todoDeleteBtn.addEventListener("click", () => {
     todoElement.remove();
   });*/
-
-  //return todoElement;
 };
 
 addTodoButton.addEventListener("click", () => {
