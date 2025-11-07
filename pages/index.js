@@ -1,4 +1,4 @@
-import { initialTodos, validationConfig } from "../utils/constants";
+import { initialTodos, validationConfig } from "../utils/constants.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
