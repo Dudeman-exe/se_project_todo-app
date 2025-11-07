@@ -5,16 +5,19 @@ class Todo {
   }
 
   getView() {
-    const todoEl = this._templateEl.content
+    this._todoEl = this._templateEl.content
       .querySelector(".todo")
       .cloneNode(true);
-    const todoNameEl = todoEl.querySelector(".todo__name");
-    const todoCheckboxEl = todoEl.querySelector(".todo__completed");
-    const todoLabel = todoEl.querySelector(".todo__label");
-    const todoDate = todoEl.querySelector(".todo__date");
-    const todoDeleteBtn = todoEl.querySelector(".todo__delete-btn");
+    const todoNameEl = this._todoEl.querySelector(".todo__name");
+    const todoCheckboxEl = this._todoEl.querySelector(".todo__completed");
+    const todoLabel = this._todoEl.querySelector(".todo__label");
+    const todoDate = this._todoEl.querySelector(".todo__date");
+    const todoDeleteBtn = this._todoEl.querySelector(".todo__delete-btn");
 
-    return todoEl;
+    todoNameEl.textContent = this._data.name;
+    todoCheckboxEl.checked = this._data.completed;
+
+    return this._todoEl;
   }
 }
 
