@@ -11,12 +11,14 @@ const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
 const section = new Section({
-  items: [],
-  renderer: () => {},
+  items: initialTodos,
+  renderer: () => {
+    // write function
+  },
   containerSelector: todosList,
 });
 
-//Add section renderer instanation
+section.renderItems();
 
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
