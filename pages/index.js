@@ -13,7 +13,8 @@ const todosList = document.querySelector(".todos__list");
 const section = new Section({
   items: initialTodos,
   renderer: () => {
-    // write function
+    const todo = generateTodo(item);
+    todosList.append(todo);
   },
   containerSelector: todosList,
 });
@@ -57,11 +58,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   todosList.append(todo);
   newTodoValidator.resetValidation();
   closeModal(addTodoPopup);
-});
-
-initialTodos.forEach((item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
 });
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);

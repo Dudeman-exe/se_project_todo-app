@@ -5,7 +5,11 @@ class Section {
     this._containerEl = document.querySelector(containerSelector);
   }
 
-  renderItems() {}
+  renderItems() {
+    this._items.forEach((item) => {
+      this._renderer(item);
+    });
+  }
 }
 
 export default Section;
