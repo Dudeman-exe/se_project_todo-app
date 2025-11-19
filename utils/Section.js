@@ -10,6 +10,10 @@ class Section {
       this._renderer(item);
     });
   }
+
+  addItem(el) {
+    this._containerEl.append(el);
+  }
 }
 
 export default Section;
