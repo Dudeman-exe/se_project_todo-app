@@ -44,23 +44,21 @@ addTodoForm.addEventListener("submit", (evt) => {
   const id = uuidv4();
   const values = { name, date, id };
   const todo = generateTodo(values);
-  section.addItem();
+  section.addItem(todo);
   newTodoValidator.resetValidation();
   closeModal(addTodoPopup);
 });
 
 const section = new Section({
   items: initialTodos,
-  renderer: () => {
-    const todo = generateTodo();
+  renderer: (item) => {
+    const todo = generateTodo(item);
     todosList.append(todo);
   },
   containerSelector: ".todos__List",
 });
 
 section.renderItems();
-
-section.addItem();
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 
