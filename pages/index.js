@@ -3,6 +3,7 @@ import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidation.js";
 import Section from "../utils/Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -10,13 +11,14 @@ const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
+const addPopup = new PopupWithForm({
+  popupSelector: "#add-todo-popup",
+  handleFormSubmit: () => {},
+});
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
+//const closeModal = (modal) => {
+//  modal.classList.remove("popup_visible");
+//};
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
@@ -25,11 +27,11 @@ const generateTodo = (data) => {
 };
 
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopup);
+  addPopup.open();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopup);
+  addPopup.close();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
@@ -55,7 +57,7 @@ const section = new Section({
     const todo = generateTodo(item);
     todosList.append(todo);
   },
-  containerSelector: ".todos__List",
+  containerSelector: ".todos__list",
 });
 
 section.renderItems();
