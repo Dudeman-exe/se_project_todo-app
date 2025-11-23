@@ -13,7 +13,7 @@ const todosList = document.querySelector(".todos__list");
 
 const addPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {
+  handleFormSubmit: (values) => {
     //      const name = evt.target.name.value;
     //  const dateInput = evt.target.date.value;
     //

@@ -5,15 +5,15 @@ class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".popup__form");
     this._handleFormSubmit = handleFormSubmit;
+    this._inputList = this._popupForm.querySelectorAll(".popup__input");
   }
 
   _getInputValues() {
-    this._inputList = this._popupForm.querySelectorAll(".popup__input");
-
     const values = {};
     this._inputList.forEach((input) => {
-      values.append(input);
-    }); // check for accuracy
+      values.append(`${input.name}: ${input.value}`);
+    }); // fix key/value pair (input.name, input.value). check sprint 4 obj lesson. braket notation
+    return values;
   }
 
   setEventListener() {
