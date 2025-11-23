@@ -7,11 +7,22 @@ class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
   }
 
+  _getInputValues() {
+    this._inputList = this._popupForm.querySelectorAll(".popup__input");
+
+    const values = {};
+    this._inputList.forEach((input) => {
+      values.append(input);
+    }); // check for accuracy
+  }
+
   setEventListener() {
     super.setEventListener;
 
     this._popupForm.addEventListener("submit", (evt) => {
       console.log("submitted");
+      evt.preventDefault();
+      const inputValues = this._getInputValues();
       this._handleFormSubmit();
     });
   }

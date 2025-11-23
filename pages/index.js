@@ -13,7 +13,20 @@ const todosList = document.querySelector(".todos__list");
 
 const addPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {},
+  handleFormSubmit: () => {
+    //      const name = evt.target.name.value;
+    //  const dateInput = evt.target.date.value;
+    //
+    //  const date = new Date(dateInput);
+    //  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    //                                                                            refactor from existing code (46-57), or pass evt arguement
+    //  const id = uuidv4();
+    // const values = { name, date, id };
+    //  const todo = generateTodo(values);
+    //  section.addItem(todo);
+    //  newTodoValidator.resetValidation();
+    //  addPopup.close();
+  },
 });
 
 const generateTodo = (data) => {
@@ -33,7 +46,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
 
-  // Create a date object and adjust for timezone
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
