@@ -6,6 +6,7 @@ class Popup {
 
   open() {
     this._popupElement.classList.add("popup_visible");
+    document.addEventListener("keyup", this._handleEscapeClose);
   }
 
   close() {
@@ -16,6 +17,13 @@ class Popup {
     this._popupCloseBtn.addEventListener("click", () => {
       this.close();
     });
+  }
+
+  _handleEscapeClose(evt) {
+    if (evt.key === "Escape") {
+      console.log("closing");
+      this.close(); // fix this here
+    }
   }
 }
 
