@@ -17,6 +17,12 @@ class Popup {
     this._popupCloseBtn.addEventListener("click", () => {
       this.close();
     });
+
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      if (evt.classList === ".popup__close" || ".popup") {
+        this.close();
+      } // fix the click close, and remove _popupCloseBtn event listener
+    });
   }
 
   _handleEscapeClose(evt) {
