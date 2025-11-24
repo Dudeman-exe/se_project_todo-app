@@ -4,6 +4,7 @@ import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidation.js";
 import Section from "../utils/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import TodoCounter from "../components/TodoCounter.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -28,6 +29,8 @@ const addPopup = new PopupWithForm({
     //  addPopup.close();
   },
 });
+
+const todoCount = new TodoCounter({});
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
