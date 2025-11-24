@@ -30,7 +30,11 @@ const addPopup = new PopupWithForm({
   },
 });
 
-const todoCount = new TodoCounter({});
+function handleCheck(completed) {
+  todoCounter.updateCompleted(completed);
+}
+
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
