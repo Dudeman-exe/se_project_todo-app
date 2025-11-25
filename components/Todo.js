@@ -1,8 +1,9 @@
 class Todo {
-  constructor(data, selector, handleCheck) {
+  constructor(data, selector, handleCheck, handleDelete) {
     this._data = data;
     this._templateEl = document.querySelector(selector);
-    this._handleCheck = handleCheck; // possible collision/ issue
+    this._handleCheck = handleCheck;
+    this._handleDelete = handleDelete;
   }
 
   _setDateEl() {

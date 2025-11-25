@@ -15,3 +15,6 @@ The practices of OOP coding are highlighted in both of the aforementioned js fil
 This project is deployed on GitHub Pages:
 
 (https://github.com/Dudeman-exe/se_project_todo-app.git)
+
+FOR REVIEWER:
+I am stuck trying to figure out how to get my popup to close properly and how to get the Todo count functionality corrected. I would very much appreciate a step in the right direction for those 2 problems as I have already posted in the hub and rewatched the walkthrough twice.

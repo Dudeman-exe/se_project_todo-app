@@ -14,19 +14,18 @@ const todosList = document.querySelector(".todos__list");
 
 const addPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: (values) => {
-    //      const name = evt.target.name.value;
-    //  const dateInput = evt.target.date.value;
-    //
-    //  const date = new Date(dateInput);
-    //  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    //                                                                            refactor from existing code (46-57), or pass evt arguement
-    //  const id = uuidv4();
-    // const values = { name, date, id };
-    //  const todo = generateTodo(values);
-    //  section.addItem(todo);
-    //  newTodoValidator.resetValidation();
-    //  addPopup.close();
+  handleFormSubmit: (data) => {
+    const name = data.name;
+    const dateInput = data.date;
+
+    const date = new Date(dateInput);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    const id = uuidv4();
+    const values = { name, date, id };
+    const todo = generateTodo(values);
+    section.addItem(todo);
+    newTodoValidator.resetValidation();
+    addPopup.close();
   },
 });
 
@@ -53,22 +52,6 @@ addTodoButton.addEventListener("click", () => {
 });
 
 addPopup.setEventListener();
-
-addTodoForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const name = evt.target.name.value;
-  const dateInput = evt.target.date.value;
-
-  const date = new Date(dateInput);
-  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-
-  const id = uuidv4();
-  const values = { name, date, id };
-  const todo = generateTodo(values);
-  section.addItem(todo);
-  newTodoValidator.resetValidation();
-  addPopup.close();
-});
 
 const section = new Section({
   items: initialTodos,

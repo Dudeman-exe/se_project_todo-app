@@ -11,8 +11,8 @@ class PopupWithForm extends Popup {
   _getInputValues() {
     const values = {};
     this._inputList.forEach((input) => {
-      values.append(`${input.name}: ${input.value}`);
-    }); // fix key/value pair (input.name, input.value). check sprint 4 obj lesson. braket notation
+      values[input.name] = input.value;
+    });
     return values;
   }
 
@@ -20,10 +20,8 @@ class PopupWithForm extends Popup {
     super.setEventListener;
 
     this._popupForm.addEventListener("submit", (evt) => {
-      console.log("submitted");
       evt.preventDefault();
-      const inputValues = this._getInputValues();
-      this._handleFormSubmit();
+      this._handleFormSubmit(this._getInputValues);
     });
   }
 }
