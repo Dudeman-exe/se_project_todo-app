@@ -1,7 +1,8 @@
 class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, handleCheck) {
     this._data = data;
     this._templateEl = document.querySelector(selector);
+    this._handleCheck = handleCheck; // possible collision/ issue
   }
 
   _setDateEl() {
@@ -26,6 +27,7 @@ class Todo {
     this._todoDeleteBtn.addEventListener("click", () => {
       this._todoEl.remove();
     });
+    this._handleCheck(this._data.completed);
   }
 
   _generateCheckboxEl() {
