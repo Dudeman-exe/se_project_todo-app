@@ -53,7 +53,7 @@ addTodoButton.addEventListener("click", () => {
   addPopup.open();
 });
 
-addPopup.setEventListener();
+addPopup.setEventListeners();
 
 const section = new Section({
   items: initialTodos,
